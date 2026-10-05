@@ -38,4 +38,4 @@ resources:
     memory: 1Gi
 
 migrate:
-  enabled: true
+  enabled: false
