@@ -1,0 +1,21 @@
+replicaCount: 1
+
+image:
+  tag: "1.0.0-dev"
+  pullPolicy: Always
+
+existingSecret: shuup-dev-secret
+
+config:
+  djangoAllowedHosts: "shop-dev.example.com"
+
+ingress:
+  host: shop-dev.example.com
+  tls: false
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    memory: 512Mi

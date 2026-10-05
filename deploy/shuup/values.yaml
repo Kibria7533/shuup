@@ -1,0 +1,41 @@
+# Production values. Secrets are not set here. Create the Secret named by
+# existingSecret in the target namespace with these keys:
+#   DATABASE_URL, DJANGO_SECRET_KEY, MIRAGE_SECRET_KEY
+
+replicaCount: 2
+
+image:
+  repository: 01720588884/shuup-workbench
+  tag: "1.0.0"
+  pullPolicy: IfNotPresent
+
+imagePullSecrets:
+  - name: regcred
+
+existingSecret: shuup-secret
+
+# Non-secret settings
+config:
+  djangoAllowedHosts: "shop.example.com"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: true
+  className: nginx
+  host: shop.example.com
+  tls: true
+  tlsSecretName: shuup-tls
+
+resources:
+  requests:
+    cpu: 250m
+    memory: 512Mi
+  limits:
+    memory: 1Gi
+
+migrate:
+  enabled: true

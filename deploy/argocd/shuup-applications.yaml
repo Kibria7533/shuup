@@ -1,0 +1,48 @@
+# ArgoCD Applications for the Shuup chart. Not applied yet.
+# Fill in REPO_URL and the destination cluster before applying:
+#   kubectl apply -n argocd -f deploy/argocd/shuup-applications.yaml
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: shuup-dev
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: REPO_URL
+    targetRevision: development
+    path: deploy/shuup
+    helm:
+      valueFiles:
+        - values.yaml
+        - values-dev.yaml
+  destination:
+    server: https://kubernetes.default.svc   # replace with the dev cluster API URL if different
+    namespace: shuup-dev
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: shuup-prod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: REPO_URL
+    targetRevision: main
+    path: deploy/shuup
+    helm:
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc   # replace with the prod cluster API URL if different
+    namespace: shuup
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
