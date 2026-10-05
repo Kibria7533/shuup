@@ -19,9 +19,10 @@ config:
   djangoAllowedHosts: "shop.example.com"
 
 service:
-  type: ClusterIP
+  type: NodePort
   port: 80
   targetPort: 8000
+  nodePort: 32348
 
 ingress:
   enabled: true
