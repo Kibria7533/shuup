@@ -114,7 +114,7 @@ if _database_url:
             "PASSWORD": unquote(_url.password or ""),
             "HOST": _url.hostname,
             "PORT": _url.port or "",
-            "OPTIONS": {"sslmode": _query.get("sslmode", "prefer")},
+            "OPTIONS": {"sslmode": _query.get("sslmode", "prefer"), "options": "-c timezone=UTC"},
         }
     }
 else:

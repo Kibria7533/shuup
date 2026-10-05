@@ -29,7 +29,7 @@ RUN pip3 install --upgrade pip setuptools wheel \
     && python3 setup.py egg_info \
     && pip3 install markupsafe==1.1.1 jinja2==2.8.1 \
     && pip3 install -r shuup.egg-info/requires.txt gunicorn==20.1.0 whitenoise==5.3.0 \
-    && pip3 install psycopg2-binary==2.9.9 \
+    && pip3 install psycopg2-binary==2.8.6 \
     && pip3 install --no-deps --no-build-isolation . \
     && rm -rf /app/build /app/dist /app/*.egg-info
 
