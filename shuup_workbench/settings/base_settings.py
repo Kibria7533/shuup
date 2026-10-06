@@ -109,6 +109,7 @@ if _database_url:
     DATABASES = {
         "default": {
             "ENGINE": "django.db.backends.postgresql",
+            "CONN_MAX_AGE": 60,
             "NAME": _url.path.lstrip("/"),
             "USER": unquote(_url.username or ""),
             "PASSWORD": unquote(_url.password or ""),
