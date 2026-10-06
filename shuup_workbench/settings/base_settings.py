@@ -126,6 +126,8 @@ else:
         }
     }
 
+SHUUP_HOME_CURRENCY = "BDT"
+
 LANGUAGE_CODE = "bn"
 TIME_ZONE = "UTC"
 USE_I18N = True
