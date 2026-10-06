@@ -6,6 +6,8 @@
 # LICENSE file in the root directory of this source tree.
 import os
 
+from django.forms import HiddenInput
+
 from shuup.addons import add_enabled_addons
 
 BASE_DIR = os.getenv("SHUUP_WORKBENCH_BASE_DIR") or (os.path.dirname(os.path.dirname(__file__)))
@@ -127,6 +129,9 @@ else:
     }
 
 SHUUP_HOME_CURRENCY = "BDT"
+
+SHUUP_ADDRESS_HOME_COUNTRY = "BD"
+SHUUP_ADDRESS_FIELD_PROPERTIES = {"country": {"widget": HiddenInput()}}
 
 LANGUAGE_CODE = "bn"
 TIME_ZONE = "UTC"
