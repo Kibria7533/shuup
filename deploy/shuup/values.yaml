@@ -25,7 +25,7 @@ service:
   nodePort: 32348
 
 ingress:
-  enabled: true
+  enabled: false
   className: nginx
   host: uttorbongi.questionhut.com
   tls: true
