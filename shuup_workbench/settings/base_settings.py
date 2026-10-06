@@ -171,6 +171,10 @@ LANGUAGES = [
     ("bn", "Bengali"),
 ]
 
+SHUUP_FRONT_POWERED_BY_CONTENT = """
+    <p class="powered">Powered by Uttorbongi</p>
+""".strip()
+
 PARLER_DEFAULT_LANGUAGE_CODE = "en"
 
 PARLER_LANGUAGES = {
