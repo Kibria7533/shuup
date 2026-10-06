@@ -47,6 +47,17 @@ spec:
             periodSeconds: 20
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
+          {{- if .Values.media.enabled }}
+          volumeMounts:
+            - name: media
+              mountPath: {{ .Values.media.mountPath }}
+          {{- end }}
+      {{- if .Values.media.enabled }}
+      volumes:
+        - name: media
+          persistentVolumeClaim:
+            claimName: {{ .Release.Name }}-shuup-media
+      {{- end }}
       {{- with .Values.imagePullSecrets }}
       imagePullSecrets:
         {{- toYaml . | nindent 8 }}

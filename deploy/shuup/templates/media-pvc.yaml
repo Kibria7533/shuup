@@ -1,0 +1,16 @@
+{{- if .Values.media.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ .Release.Name }}-shuup-media
+  labels:
+    app.kubernetes.io/name: shuup
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: {{ .Values.media.storageClassName }}
+  resources:
+    requests:
+      storage: {{ .Values.media.size }}
+{{- end }}

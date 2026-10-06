@@ -40,3 +40,9 @@ resources:
 
 migrate:
   enabled: false
+
+media:
+  enabled: true
+  size: 5Gi
+  storageClassName: nfs-client
+  mountPath: /app/shuup_workbench/var/media
