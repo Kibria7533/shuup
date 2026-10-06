@@ -2,7 +2,7 @@
 # existingSecret in the target namespace with these keys:
 #   DATABASE_URL, DJANGO_SECRET_KEY, MIRAGE_SECRET_KEY
 
-replicaCount: 2
+replicaCount: 4
 
 image:
   repository: 01720588884/shuup-workbench
