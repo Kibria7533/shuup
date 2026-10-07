@@ -6,7 +6,7 @@ replicaCount: 4
 
 image:
   repository: 01720588884/shuup-workbench
-  tag: "1.0.11"
+  tag: "1.0.12"
   pullPolicy: IfNotPresent
 
 imagePullSecrets:

@@ -131,7 +131,11 @@ else:
 SHUUP_HOME_CURRENCY = "BDT"
 
 SHUUP_ADDRESS_HOME_COUNTRY = "BD"
-SHUUP_ADDRESS_FIELD_PROPERTIES = {"country": {"widget": HiddenInput()}}
+SHUUP_ADDRESS_FIELD_PROPERTIES = {
+    "country": {"widget": HiddenInput()},
+    "region": {"widget": HiddenInput(), "required": False},
+    "region_code": {"widget": HiddenInput(), "required": False},
+}
 
 LANGUAGE_CODE = "bn"
 TIME_ZONE = "UTC"
