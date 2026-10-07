@@ -232,12 +232,16 @@ SESSION_SERIALIZER = "django.contrib.sessions.serializers.PickleSerializer"
 SHUUP_PRICING_MODULE = "customer_group_pricing"
 
 SHUUP_SETUP_WIZARD_PANE_SPEC = [
-    "shuup.admin.modules.shops.views:ShopWizardPane",
-    "shuup.admin.modules.service_providers.views.PaymentWizardPane",
-    "shuup.admin.modules.service_providers.views.CarrierWizardPane",
-    "shuup.xtheme.admin_module.views.ThemeWizardPane",
-    "shuup.testing.modules.sample_data.views.SampleObjectsWizardPane" if DEBUG else "",
-    "shuup.admin.modules.system.views.TelemetryWizardPane",
+    pane
+    for pane in [
+        "shuup.admin.modules.shops.views:ShopWizardPane",
+        "shuup.admin.modules.service_providers.views.PaymentWizardPane",
+        "shuup.admin.modules.service_providers.views.CarrierWizardPane",
+        "shuup.xtheme.admin_module.views.ThemeWizardPane",
+        "shuup.testing.modules.sample_data.views.SampleObjectsWizardPane" if DEBUG else "",
+        "shuup.admin.modules.system.views.TelemetryWizardPane",
+    ]
+    if pane
 ]
 
 
