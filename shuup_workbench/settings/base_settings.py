@@ -157,6 +157,7 @@ LOGGING = {
     },
     "loggers": {
         "shuup": {"handlers": ["console"], "level": "DEBUG", "propagate": True},
+        "django.request": {"handlers": ["console"], "level": "ERROR", "propagate": False},
     },
 }
 
