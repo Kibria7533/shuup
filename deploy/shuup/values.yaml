@@ -2,7 +2,7 @@
 # existingSecret in the target namespace with these keys:
 #   DATABASE_URL, DJANGO_SECRET_KEY, MIRAGE_SECRET_KEY
 
-replicaCount: 4
+replicaCount: 2
 
 image:
   repository: 01720588884/shuup-workbench
@@ -33,10 +33,10 @@ ingress:
 
 resources:
   requests:
-    cpu: 2000m
-    memory: 2024Mi
+    cpu: 250m
+    memory: 512Mi
   limits:
-    memory: 4Gi
+    memory: 1Gi
 
 migrate:
   enabled: false
